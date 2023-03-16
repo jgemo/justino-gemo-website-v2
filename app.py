@@ -6,26 +6,25 @@ JOBS = [
   {
     'id': 1,
     'title': 'Data Analyst',
-    'location': 'Maputo, Mozambique',
-    'Salary': '120.000,00 MT'
+    'location': ' Maputo, Mozambique',
+    'salary': ' 120.000,00 MT'
   },
   {
     'id': 2,
     'title': 'Frontend Engineer',
-    'location': 'Remote',
-    'Salary': '70.000,00 MT'
+    'location': ' Remote',
   },
   {
     'id': 3,
     'title': 'Backend Engineer',
-    'location': 'JHB, South Africa',
-    'Salary': 'R 100.000,00'
+    'location': ' JHB, South Africa',
+    'salary': ' R 100.000,00'
   },
   {
     'id': 4,
     'title': 'Data Scientist',
-    'location': 'Lisbo, Portugal',
-    'Salary': 'Eur 130.000,00'
+    'location': ' Lisbo, Portugal',
+    'salary': ' Eur 130.000,00'
   }
 ]
 
