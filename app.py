@@ -1,4 +1,5 @@
 from flask import Flask, render_template, jsonify
+from database import engine
 
 app = Flask(__name__)
 
@@ -22,6 +23,13 @@ JOBS = [{
     'location': ' Lisbo, Portugal',
     'salary': ' Eur 130.000,00'
 }]
+
+def load_jobs_from_db():
+with engine.connect() as conn:
+    result = conn.execute(text("select * from jobs"))
+    result_dicts = []
+    for row in result.all():
+     result_dicts.append(dict(row))
 
 
 @app.route("/")

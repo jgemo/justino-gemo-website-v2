@@ -15,7 +15,9 @@ with engine.connect() as conn:
     result = conn.execute(text("select * from jobs"))
 
 result_dicts = []
-for row in result.all():
-    result_dicts.append(dict(row))
+for row1 in result.all():
+    result_dicts.append(dict(row1))
 
 print(result_dicts)
+
+
