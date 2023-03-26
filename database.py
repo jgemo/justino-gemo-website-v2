@@ -3,21 +3,22 @@
 #pip install pymysql
 
 from sqlalchemy import create_engine, text
+import os
 
-db_connection_string = "mysql+pymysql://yv0s1zbe7x4qmlbpbawz:pscale_pw_o1GnuKRRMuEkxMSTKgrq13L7W2e15KD7fx4PFtAnyNC@ap-southeast.connect.psdb.cloud/jgemo?charset=utf8mb4"
+my_secret = os.environ['DB_CONNECTION_STRING']
+
+db_connection_string = os.environ['DB_CONNECTION_STRING']
 
 engine = create_engine(db_connection_string,
                        connect_args={"ssl": {
                            "ssl_ca": "/etc/ssl/cert.pem"
                        }})
 
-with engine.connect() as conn:
-    result = conn.execute(text("select * from jobs"))
 
-result_dicts = []
-for row1 in result.all():
-    result_dicts.append(dict(row1))
-
-print(result_dicts)
-
-
+def load_jobs_from_db():
+    with engine.connect() as conn:
+        result = conn.execute(text("select * from jobs"))
+        jobs = []
+        for row in result.all():
+            jobs.append(row._asdict())
+    return jobs
