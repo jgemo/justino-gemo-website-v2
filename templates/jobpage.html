@@ -2,14 +2,32 @@
 <html>
   <head>
     <title>{{job.title}} - Emprego</title>
-     <meta charset="utf-8">
+     {% include 'bootstramp.html' %}     
   </head>
   <body>
-    <h3>Title</h3>
-    <p>{{job.title}}</p>
-    <h3>Job Location</h3>
-    <p>{{job.location}}</p>
-    <h3>Salary</h3>
-    <p>{{job.currency}}{{job.salary}}</p>
+     {% include 'nav.html' %}
+    {% include 'banner.html' %}
+     <div class="container">
+      <h1 class="text-center mt-2 mt-4">Infordata, Lda</h1>
+      <h3>Title</h3>
+      <p>{{job.title}}</p>
+      <h3>Job Location</h3>
+      <p>{{job.location}}</p>  
+        <h3>Responsabilities</h3>
+       <ul>
+         {% for line in job.responsabilities.split("\n") %}
+         <li>{{line}}</li>
+         {% endfor %}
+       </ul>    
+      <h3>Requirements</h3>
+      <ol>
+        {% for line in job.requirements.split("\n") %}
+         <li>{{line}}</li>
+        {% endfor %}
+      </ol>
+      <h3>Salary</h3>
+      <p>{{job.currency}} {{job.salary}}</p>
+     </div>
+    {% include 'footer.html' %}
   </body>
 </html>
